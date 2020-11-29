@@ -4,6 +4,8 @@
 #
 # To check wiring is correct ensure the order of movement as above is correct
 
+from __future__ import absolute_import
+from __future__ import print_function
 import piconzero as pz, time
 
 #======================================================================
@@ -40,12 +42,12 @@ def readkey(getchar_fn=None):
 
 speed = 60
 
-print "Tests the motors by using the arrow keys to control"
-print "Use , or < to slow down"
-print "Use . or > to speed up"
-print "Speed changes take effect when the next arrow key is pressed"
-print "Press Ctrl-C to end"
-print
+print("Tests the motors by using the arrow keys to control")
+print("Use , or < to slow down")
+print("Use . or > to speed up")
+print("Speed changes take effect when the next arrow key is pressed")
+print("Press Ctrl-C to end")
+print()
 
 pz.init()
 
@@ -55,30 +57,30 @@ try:
         keyp = readkey()
         if keyp == 'w' or ord(keyp) == 16:
             pz.forward(speed)
-            print 'Forward', speed
+            print('Forward', speed)
         elif keyp == 'z' or ord(keyp) == 17:
             pz.reverse(speed)
-            print 'Reverse', speed
+            print('Reverse', speed)
         elif keyp == 's' or ord(keyp) == 18:
             pz.spinRight(speed)
-            print 'Spin Right', speed
+            print('Spin Right', speed)
         elif keyp == 'a' or ord(keyp) == 19:
             pz.spinLeft(speed)
-            print 'Spin Left', speed
+            print('Spin Left', speed)
         elif keyp == '.' or keyp == '>':
             speed = min(100, speed+10)
-            print 'Speed+', speed
+            print('Speed+', speed)
         elif keyp == ',' or keyp == '<':
             speed = max (0, speed-10)
-            print 'Speed-', speed
+            print('Speed-', speed)
         elif keyp == ' ':
             pz.stop()
-            print 'Stop'
+            print('Stop')
         elif ord(keyp) == 3:
             break
 
 except KeyboardInterrupt:
-    print
+    print()
 
 finally:
     pz.cleanup()

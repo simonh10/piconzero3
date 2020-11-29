@@ -3,12 +3,14 @@
 # GNU GPL V3
 # Test code for 4tronix Picon Zero
 
+from __future__ import absolute_import
+from __future__ import print_function
 import piconzero as pz, time
 
 pz.init()
 pz.setOutputConfig(5, 3)    # set output 5 to WS2812
 rev = pz.getRevision()
-print rev[0], rev[1]
+print(rev[0], rev[1])
 try:
     while True:
         pz.setAllPixels(255,255,255)
@@ -16,7 +18,7 @@ try:
         pz.setAllPixels(0,0,0)
         time.sleep(1)
 except KeyboardInterrupt:
-    print
+    print()
 finally:
     pz.cleanup()
 

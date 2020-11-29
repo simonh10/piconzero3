@@ -1,4 +1,5 @@
 
+from __future__ import absolute_import
 import piconzero as pz, time
 
 pz.setInputConfig(0, 1)     # set input 0 to Analog

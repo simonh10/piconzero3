@@ -11,6 +11,7 @@
 #
 #======================================================================
 
+from __future__ import absolute_import
 import RPi.GPIO as GPIO, sys, threading, time, os, subprocess
 
 

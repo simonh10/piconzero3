@@ -2,6 +2,8 @@
 #
 # Basic test of HC-SR04 ultrasonic sensor on Picon Zero
 
+from __future__ import absolute_import
+from __future__ import print_function
 import hcsr04, time
 
 hcsr04.init()
@@ -9,10 +11,10 @@ hcsr04.init()
 try:
     while True:
         distance = int(hcsr04.getDistance())
-        print "Distance:", distance
+        print("Distance:", distance)
         time.sleep(1)
 except KeyboardInterrupt:
-    print
+    print()
 finally:
     hcsr04.cleanup()
 

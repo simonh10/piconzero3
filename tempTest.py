@@ -3,6 +3,8 @@
 # GNU GPL V3
 # Test code for 4tronix Picon Zero
 
+from __future__ import absolute_import
+from __future__ import print_function
 import piconzero as pz, time
 
 pz.init()
@@ -17,10 +19,10 @@ try:
         ana2 = pz.readInput(2)
         if (ana2>32767):
             ana2 -= 65536
-        print ana0*0.0625, ana2*0.0625
+        print(ana0*0.0625, ana2*0.0625)
         time.sleep(1)
 except KeyboardInterrupt:
-    print
+    print()
 finally:
     pz.cleanup()
 

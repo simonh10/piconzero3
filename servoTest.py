@@ -4,6 +4,8 @@
 # Press Ctrl-C to stop
 #
 
+from __future__ import absolute_import
+from __future__ import print_function
 import piconzero as pz, time
 
 #======================================================================
@@ -40,10 +42,10 @@ def readkey(getchar_fn=None):
 
 speed = 60
 
-print "Tests the servos by using the arrow keys to control"
-print "Press <space> key to centre"
-print "Press Ctrl-C to end"
-print
+print("Tests the servos by using the arrow keys to control")
+print("Press <space> key to centre")
+print("Press Ctrl-C to end")
+print()
 
 # Define which pins are the servos
 pan = 0
@@ -71,25 +73,25 @@ try:
         keyp = readkey()
         if keyp == 'w' or ord(keyp) == 16:
             panVal = max (0, panVal - 5)
-            print 'Up', panVal
+            print('Up', panVal)
         elif keyp == 'z' or ord(keyp) == 17:
             panVal = min (180, panVal + 5)
-            print 'Down', panVal
+            print('Down', panVal)
         elif keyp == 's' or ord(keyp) == 18:
             tiltVal = max (0, tiltVal - 5)
-            print 'Right', tiltVal
+            print('Right', tiltVal)
         elif keyp == 'a' or ord(keyp) == 19:
             tiltVal = min (180, tiltVal + 5)
-            print 'Left', tiltVal
+            print('Left', tiltVal)
         elif keyp == 'g':
             gripVal = max (0, gripVal - 5)
-            print 'Open', gripVal
+            print('Open', gripVal)
         elif keyp == 'h':
             gripVal = min (180, gripVal + 5)
-            print 'Close', gripVal
+            print('Close', gripVal)
         elif keyp == ' ':
             panVal = tiltVal = gripVal = 90
-            print 'Centre'
+            print('Centre')
         elif ord(keyp) == 3:
             break
         pz.setOutput (pan, panVal)
@@ -97,7 +99,7 @@ try:
         pz.setOutput (grip, gripVal)
 
 except KeyboardInterrupt:
-    print
+    print()
 
 finally:
     pz.cleanup()

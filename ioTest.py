@@ -3,7 +3,10 @@
 # GNU GPL V3
 # Test code for 4tronix Picon Zero
 
+from __future__ import absolute_import
+from __future__ import print_function
 import piconzero as pz, time
+from six.moves import range
 
 lastPix = 0
 numpixels = 8
@@ -14,7 +17,7 @@ pz.setOutputConfig(0, 1)    # set output 0 to PWM
 pz.setOutputConfig(2, 2)    # set output 2 to Servo
 pz.setOutputConfig(5, 3)    # set output 5 to WS2812
 rev = pz.getRevision()
-print rev[0], rev[1]
+print(rev[0], rev[1])
 try:
     while True:
         ana0 = pz.readInput(0)
@@ -32,7 +35,7 @@ try:
         pz.setOutput(2, int(ana0/7))
         time.sleep(0.1)
 except KeyboardInterrupt:
-    print
+    print()
 finally:
     pz.cleanup()
 
